@@ -6,6 +6,18 @@ from io import BytesIO
 import requests
 from PIL import Image, ImageDraw, ImageEnhance
 
+def check_date_fmt(date_str):
+    formats = {
+        "%Y/%m/%d %p%I:%M": "Ymd",
+        "%m/%d/%Y %I:%M %p": "mdY"
+    }
+    for fmt, fmt_name in formats.items():
+        try:
+            datetime.strptime(date_str, fmt)
+            return fmt_name
+        except ValueError:
+            continue
+    return 0
 
 def get_d_time(date: str) -> str:
     if date.split(" ")[1][:2] == "下午":
@@ -13,7 +25,13 @@ def get_d_time(date: str) -> str:
     else:
         date = date.replace("上午", "AM")
 
-    date_obj = datetime.strptime(date, "%Y/%m/%d %p%I:%M")
+    data_fmt = check_date_fmt(date)
+    if data_fmt == "Ymd":
+        date_obj = datetime.strptime(date, "%Y/%m/%d %p%I:%M")
+    elif data_fmt == "mdY":
+        date_obj = datetime.strptime(date, "%m/%d/%Y %I:%M %p")
+    else:
+        raise ValueError("Invalid date format")
 
     timestamp = int(date_obj.timestamp())
 
