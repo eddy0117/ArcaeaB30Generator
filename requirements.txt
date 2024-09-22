@@ -1,0 +1,6 @@
+selenium
+webdriver_manager
+pillow
+pandas
+requests
+bs4

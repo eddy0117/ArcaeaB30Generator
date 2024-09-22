@@ -1,0 +1,15 @@
+*.csv
+ava.png
+src/banner_img/*
+src/char_img/*
+src/cover_img/*
+src/rating_img/*
+__pycache__
+B30.png
+output.png
+*.ipynb
+
+!src/banner_img/.gitkeep
+!src/char_img/.gitkeep
+!src/cover_img/.gitkeep
+!src/rating_img/.gitkeep
