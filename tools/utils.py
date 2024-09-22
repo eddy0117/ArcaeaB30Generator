@@ -26,9 +26,12 @@ def get_d_time(date: str) -> str:
         date = date.replace("上午", "AM")
 
     data_fmt = check_date_fmt(date)
+
     if data_fmt == "Ymd":
+        # windows
         date_obj = datetime.strptime(date, "%Y/%m/%d %p%I:%M")
     elif data_fmt == "mdY":
+        # linux
         date_obj = datetime.strptime(date, "%m/%d/%Y %I:%M %p")
     else:
         raise ValueError("Invalid date format")
