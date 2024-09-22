@@ -505,7 +505,7 @@ if __name__ == '__main__':
     
     arcaea_render = B30Render()
     
-    b30_img = arcaea_render.generate_b30(isOnline=False)
+    b30_img = arcaea_render.generate_b30(isOnline=True)
     if b30_img:
         b30_img.save('B30.png')
     
