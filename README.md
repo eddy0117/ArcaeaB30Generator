@@ -12,12 +12,11 @@
 
 ### 2. 安裝依賴套件
 
-    pip install -r requirement.txt
+    pip install -r requirements.txt
 
 ## Usage
 
-1. 將 user.txt 中的 username 與 password 替換成你的帳號與密碼
-2. 執行腳本
+ 將 user.txt 中的 username 與 password 替換為帳密
 
 ```
 python main.py
